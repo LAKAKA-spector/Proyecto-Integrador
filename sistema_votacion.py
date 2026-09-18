@@ -62,6 +62,22 @@ def reiniciar_votacion():
     print("Votacion reiniciada.")
 
 
+def mostrar_ganador():
+
+    # 4. Opcion 4: Determina y muestra quién ganó la votacion
+
+    total_votos = sum(votos.values())
+    if total_votos == 0:
+        print("\nGANADOR: No hay votos registrados aún.")
+        return
+
+    # Encuentra el candidato con más votos
+    ganador = max(votos, key=votos.get)
+    max_votos = votos[ganador]
+
+    print(f"\nEl ganador es {ganador} con {max_votos} votos")
+
+
 # Menu interactivo de prueba
 
 if __name__ == "__main__":
@@ -69,4 +85,5 @@ if __name__ == "__main__":
     registrar_voto("789012", "Messi")
     registrar_voto("123456", "El bicho")  # Intento de fraude (voto doble)
     ver_resultado()
+    mostrar_ganador()  # Mejora adicional
     reiniciar_votacion()
